@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    public float _speed = 1.0f;
+
     void Start()
     {
+        this.transform.position = new Vector3(-6, 2, 0);    // 윗줄생산
 
     }
 
     void Update()
     {
-        this.transform.position = transform.Translate(Vector3.right * Time.deltaTime);
-            
-            
+
+        this.transform.Translate(Vector3.right * _speed * Time.deltaTime);
+
     }
 }
