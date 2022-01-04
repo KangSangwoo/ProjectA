@@ -17,16 +17,16 @@ public class PlayerMove : MonoBehaviour
 
     void Start()
     {
-       // this.transform.position = new Vector3(-6, 2, 0);    // 윗줄생산
+        //this.transform.position = new Vector3(-6, 2, 0);    // 윗줄생산
 
     }
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
+        // (Input.GetButtonDown("Fire1"))
+        
             this.transform.Translate(Vector3.right * _speed * Time.deltaTime);
-        }
+        
     }
 }
 
