@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        /*
         int rand = Random.Range(0, 10); //랜덤 변수 선언
 
         if (rand < 5)
@@ -21,6 +22,8 @@ public class Enemy : MonoBehaviour
             // 몬스터 아랫쪽 줄에서 생성
             this.transform.position = new Vector3();
         }
+
+    */
     }
 
     void Update()

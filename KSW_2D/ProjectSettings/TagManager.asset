@@ -14,7 +14,7 @@ TagManager:
   - 
   - 
   - BackGround
-  - 
+  - Text
   - 
   - 
   - 
@@ -46,4 +46,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 76808869
+    locked: 0
+  - name: Text
+    uniqueID: 650755495
     locked: 0
