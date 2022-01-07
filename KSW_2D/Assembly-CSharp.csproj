@@ -69,8 +69,9 @@
     <Compile Include="Assets\Resource\Hero Knight - Pixel Art\Demo\HeroKnight.cs" />
     <Compile Include="Assets\Resource\Hero Knight - Pixel Art\Demo\Sensor_HeroKnight.cs" />
     <Compile Include="Assets\Script\Enemy.cs" />
+    <Compile Include="Assets\Script\EnemyManager.cs" />
     <Compile Include="Assets\Script\GameManger.cs" />
-    <Compile Include="Assets\Script\NewBehaviourScript.cs" />
+    <Compile Include="Assets\Script\GaugeBar.cs" />
     <Compile Include="Assets\Script\PlayerMove.cs" />
     <None Include="Assets\Resource\Knight Files\Read Me.txt" />
     <None Include="Assets\Resource\Hero and Opponents\license.txt" />

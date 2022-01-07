@@ -6,10 +6,14 @@ public class Enemy : MonoBehaviour
 {
     public float _speed = 1.0f;
 
+
+
+
     void Start()
     {
-        /*
-        int rand = Random.Range(0, 10); //랜덤 변수 선언
+        /*  활성화 되면// 온에이블로 바꾸자 
+         *  
+        int rand = Random.Range(0, 8); //랜덤 변수 선언
 
         if (rand < 5)
         {
@@ -24,10 +28,33 @@ public class Enemy : MonoBehaviour
         }
 
     */
+
+
+
     }
 
     void Update()
     {
         this.transform.Translate(Vector3.left * _speed * Time.deltaTime);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name.Contains("Player"))
+        {
+            collision.gameObject.SetActive(false);      // 임시로 닿으면 제거
+            Debug.Log("충돌");
+        }
+
+        this.gameObject.SetActive(false);
+        EnemyManager em = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
+        em._enemyObjectPool.Add(this.gameObject);
+
+    }
+
+
+
+
+
+
 }
