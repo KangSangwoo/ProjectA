@@ -35,6 +35,8 @@ public class GameManger : MonoBehaviour
 
     public void OnClick_UnitButton1()
     {
+        
+
         GameObject player1 = Instantiate(_Unit1_Source); // 유닛1 생성
         player1.transform.position = _CreatePosition1.position;    
 
