@@ -11,7 +11,7 @@ public class Cost_Gague : MonoBehaviour
 
     float cost = 0;
     public float plus_cost = 1.0f;
-    float cost_max = 100.0f;
+    float cost_max = 500.0f;
 
     void Start()
     {
@@ -21,7 +21,7 @@ public class Cost_Gague : MonoBehaviour
 
     void Update()
     {
-        Change_cost();
+        Change_cost();  // 코스트 변화
     }
 
 
@@ -51,7 +51,7 @@ public class Cost_Gague : MonoBehaviour
             cost_txt.text = txt;
         }
 
-        CostBar.value = cost / cost_max;// 이미지 채우기
+        CostBar.value = cost / cost_max;        // 이미지 채우기
         //img.fillAmount = cost / cost_max;     // 이미지 채우기
 
 
