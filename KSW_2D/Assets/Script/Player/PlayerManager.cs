@@ -95,6 +95,8 @@ public class PlayerManager : MonoBehaviour
         Canvas_Left.SetActive(false);
         canvas_right_down.SetActive(false);
         Is_attribute_done();
+
+        //   + 속성에 따라서 파티클이 나오도록
     }
 
     // 속성선택 함수2_물
@@ -148,6 +150,24 @@ public class PlayerManager : MonoBehaviour
         player1.SetActive(true);             // 활성화
         WhereStones.SetActive(false);
     }
+
+    // 줄 선택 함수_2
+    public void OnClick_WhereStone_2()
+    {
+        player1.transform.position = _CreatePosition2.position;     //1번 줄에서 생성
+        player1.SetActive(true);             // 활성화
+        WhereStones.SetActive(false);
+    }
+
+    // 줄 선택 함수_3
+    public void OnClick_WhereStone_3()
+    {
+        player1.transform.position = _CreatePosition3.position;     //1번 줄에서 생성
+        player1.SetActive(true);             // 활성화
+        WhereStones.SetActive(false);
+    }
+        
+
 
 
     // 유닛2 생성
