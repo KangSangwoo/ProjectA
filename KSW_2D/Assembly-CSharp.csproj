@@ -70,12 +70,12 @@
     <Compile Include="Assets\Resource\Hero Knight - Pixel Art\Demo\Sensor_HeroKnight.cs" />
     <Compile Include="Assets\Script\Enemy.cs" />
     <Compile Include="Assets\Script\EnemyManager.cs" />
-    <Compile Include="Assets\Script\GameManger.cs" />
     <Compile Include="Assets\Script\Gauge\Cost_Gague.cs" />
     <Compile Include="Assets\Script\Gauge\Exp_Gague.cs" />
     <Compile Include="Assets\Script\Gauge\Sp_Gague.cs" />
-    <Compile Include="Assets\Script\PlayerManager.cs" />
-    <Compile Include="Assets\Script\PlayerMove.cs" />
+    <Compile Include="Assets\Script\Player\Defender.cs" />
+    <Compile Include="Assets\Script\Player\PlayerManager.cs" />
+    <Compile Include="Assets\Script\Player\PlayerMove.cs" />
     <None Include="Assets\Resource\Knight Files\Read Me.txt" />
     <None Include="Assets\Resource\Hero and Opponents\license.txt" />
     <None Include="Assets\Resource\Hero_Knight_2\License.txt" />

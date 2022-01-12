@@ -15,7 +15,7 @@ public class Cost_Gague : MonoBehaviour
 
     void Start()
     {
-        Set_cost(0);    //처음에 코스트0으로 시작
+        Set_cost(200);    //처음에 코스트0으로 시작
     }
 
 
