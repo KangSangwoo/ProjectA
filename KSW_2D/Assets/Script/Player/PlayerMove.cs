@@ -10,11 +10,13 @@ public class PlayerMove : MonoBehaviour
     public float _def;
     public float _MaxHp;
     public float _speed = 1.0f;
+    public float attribute = 0;   // 0불, 1,물, 2땅
 
 
     void Start()
     {
-        
+       // if()
+        Set_Uint_1();
     }
 
     void Update()

@@ -6274,7 +6274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b8ad8c98c5c512479106bd9979be89c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Unit1_Source: {fileID: 2896088516288921793, guid: 31de7c03d71a81d41a779f538c9fa1f0,
+  _Unit1_Source: {fileID: 4660517591739535170, guid: 902c80760ff01e6438198f24b2fb57b3,
     type: 3}
   _Unit2_Source: {fileID: 608725305679513154, guid: 11b5387cda88c1c4796f85aee4468757,
     type: 3}
@@ -6297,6 +6297,12 @@ MonoBehaviour:
   attribute1: {fileID: 317879543}
   attribute2: {fileID: 1237497759}
   attribute3: {fileID: 1559103037}
+  Fire_Particle: {fileID: 4381318010474147196, guid: ac8e2714d8983184b8fb2abdecf0fb85,
+    type: 3}
+  water_Particle: {fileID: 3354609922314975093, guid: b0af1dd414bb79a46a8bd9d30c462081,
+    type: 3}
+  ground_Particle: {fileID: 5834139083120261495, guid: 01579a377997be5469fd600733cc6169,
+    type: 3}
   WhereStones: {fileID: 1870049162}
   WhereStone1: {fileID: 1318669574}
   WhereStone2: {fileID: 467555996}

@@ -46,17 +46,24 @@ public class PlayerManager : MonoBehaviour
     public GameObject attribute1;   // 불
     public GameObject attribute2;   // 물
     public GameObject attribute3;   // 땅
-    bool Is_attribute_1 = false;
-    bool Is_attribute_2 = false;
-    bool Is_attribute_3 = false;
+    int what_attribte;
 
 
+
+    // 속성효과_파티클
+    public GameObject Fire_Particle;
+    public GameObject water_Particle;
+    public GameObject ground_Particle;
 
     // 소환 위치 선택
     public GameObject WhereStones;
     public GameObject WhereStone1;
     public GameObject WhereStone2;
     public GameObject WhereStone3;
+
+    // 유닛 배열로
+    int[] players = new int[] { 1, 2, 3, 4 };
+
 
 
     void Start()
@@ -65,6 +72,7 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
+
     }
 
     public void OnClick_UnitButton1()
@@ -84,25 +92,23 @@ public class PlayerManager : MonoBehaviour
         txt_3 = string.Format("공격:{0} 방어:{1} 속도:{2}", 50, 60, 3);
         Info_txt_3.text = txt_3;
 
-        //속성 선택창 출력
+        //속성 선택창 활성화
         canvas_right_down.SetActive(true);
     }
 
     // 속성선택 함수1_불
     public void OnClick_attribute_1()
     {
-        Is_attribute_1 = true;
-        Canvas_Left.SetActive(false);
+        what_attribte = 1;
+        Canvas_Left.SetActive(false);           // 상태/속성창 비활성화하고 속성선택 완료 함수 실행
         canvas_right_down.SetActive(false);
         Is_attribute_done();
-
-        //   + 속성에 따라서 파티클이 나오도록
     }
 
     // 속성선택 함수2_물
     public void OnClick_attribute_2()
     {
-        Is_attribute_2 = true;
+        what_attribte = 2;
         Canvas_Left.SetActive(false);
         canvas_right_down.SetActive(false);
         Is_attribute_done();
@@ -111,7 +117,7 @@ public class PlayerManager : MonoBehaviour
     // 속성선택 함수3_땅
     public void OnClick_attribute_3()
     {
-        Is_attribute_3 = true;
+        what_attribte = 3;
         Canvas_Left.SetActive(false);
         canvas_right_down.SetActive(false);
         Is_attribute_done();
@@ -121,24 +127,30 @@ public class PlayerManager : MonoBehaviour
     // 속성선택 완료하면 출력하는 함수
     public void Is_attribute_done()
     {
-        //player1.GetComponent<SpriteRenderer>();
-        //_Unit1_Source.GetComponent<SpriteRenderer>();
+
         //unit_color.color = Color.red;     
-        if (Is_attribute_1 == true)
+        if (what_attribte == 1)
         {
-            
-            WhereStones.SetActive(true);
+            WhereStones.SetActive(true);        // 소환위치버튼 활성화
+            //Fire_Particle.SetActive(true);          // 물속성 파티클 활성화
+            player1.GetComponent<Defender>().Set_Uint_fire();
         }
-        else if (Is_attribute_2 == true)
+        else if (what_attribte == 2)
         {
-            // 플레이어 속성바꾸는 함수 추후 작성
             WhereStones.SetActive(true);
+            //water_Particle.SetActive(true);          // 물속성 파티클 활성화
+            player1.GetComponent<Defender>().Set_Uint_water();
+
+
         }
-        else if (Is_attribute_3 == true)
+        else if (what_attribte == 3)
         {
-            // 플레이어 속성바꾸는 함수 추후 작성
             WhereStones.SetActive(true);
+            //ground_Particle.SetActive(true);          // 땅속성 파티클 활성화
+            player1.GetComponent<Defender>().Set_Uint_ground();
+
         }
+        else return;
     }
 
 
@@ -147,26 +159,32 @@ public class PlayerManager : MonoBehaviour
     public void OnClick_WhereStone_1()
     {
         player1.transform.position = _CreatePosition1.position;     //1번 줄에서 생성
-        player1.SetActive(true);             // 활성화
+        player1.SetActive(true);             // 플레이어 활성화
         WhereStones.SetActive(false);
+        what_attribte = 0;                  // 속성 초기화
+
     }
 
     // 줄 선택 함수_2
     public void OnClick_WhereStone_2()
     {
-        player1.transform.position = _CreatePosition2.position;     //1번 줄에서 생성
-        player1.SetActive(true);             // 활성화
+        player1.transform.position = _CreatePosition2.position;     //2번 줄에서 생성
+        player1.SetActive(true);             
         WhereStones.SetActive(false);
+        what_attribte = 0;                  // 속성 초기화
+
     }
 
     // 줄 선택 함수_3
     public void OnClick_WhereStone_3()
     {
-        player1.transform.position = _CreatePosition3.position;     //1번 줄에서 생성
-        player1.SetActive(true);             // 활성화
+        player1.transform.position = _CreatePosition3.position;     //3번 줄에서 생성
+        player1.SetActive(true);             
         WhereStones.SetActive(false);
+        what_attribte = 0;                  // 속성 초기화
+
     }
-        
+
 
 
 
