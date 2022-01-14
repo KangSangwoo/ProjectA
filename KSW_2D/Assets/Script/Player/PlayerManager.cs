@@ -51,9 +51,10 @@ public class PlayerManager : MonoBehaviour
 
 
     // 속성효과_파티클
-    public GameObject Fire_Particle;
-    public GameObject water_Particle;
-    public GameObject ground_Particle;
+    //public GameObject Fire_Particle;
+    //public GameObject water_Particle;
+    //public GameObject ground_Particle;
+
 
     // 소환 위치 선택
     public GameObject WhereStones;
@@ -62,7 +63,7 @@ public class PlayerManager : MonoBehaviour
     public GameObject WhereStone3;
 
     // 유닛 배열로
-    int[] players = new int[] { 1, 2, 3, 4 };
+    int[] players = new int[] { 1, 2, 3, 4 };       //인덱스 알아보기
 
 
 
@@ -75,13 +76,12 @@ public class PlayerManager : MonoBehaviour
 
     }
 
+    //유닛버튼1 클릭
     public void OnClick_UnitButton1()
     {
         player1 = Instantiate(_Unit1_Source); // 유닛1 생성
         player1.SetActive(false);             // 일단 비활성화
-
-       
-       player1.GetComponent<PlayerMove>();
+        player1.GetComponent<PlayerMove>();
 
         //유닛 정보 출력 
         Canvas_Left.SetActive(true);
@@ -99,10 +99,15 @@ public class PlayerManager : MonoBehaviour
     // 속성선택 함수1_불
     public void OnClick_attribute_1()
     {
+        Debug.Log("불속성 선택함");
+
         what_attribte = 1;
         Canvas_Left.SetActive(false);           // 상태/속성창 비활성화하고 속성선택 완료 함수 실행
         canvas_right_down.SetActive(false);
+       // attribute1 = Instantiate(Fire_Particle);       //파티클 오브젝트로 생성
+       // attribute1.transform.position = player1.transform.position;     // 유닛의 위치로
         Is_attribute_done();
+
     }
 
     // 속성선택 함수2_물
@@ -127,30 +132,31 @@ public class PlayerManager : MonoBehaviour
     // 속성선택 완료하면 출력하는 함수
     public void Is_attribute_done()
     {
-
         //unit_color.color = Color.red;     
         if (what_attribte == 1)
         {
+            Debug.Log("속성선택완료");
             WhereStones.SetActive(true);        // 소환위치버튼 활성화
-            //Fire_Particle.SetActive(true);          // 물속성 파티클 활성화
-            player1.GetComponent<Defender>().Set_Uint_fire();
+            player1.GetComponent<Defender>().Set_Uint_Is_attribute(what_attribte);   // 속성bool값 변경 -> 파티클효과 플레이
+            what_attribte = 0;                  // 속성 초기화
+            Debug.Log("속성초기화");
+
+
         }
         else if (what_attribte == 2)
         {
             WhereStones.SetActive(true);
-            //water_Particle.SetActive(true);          // 물속성 파티클 활성화
-            player1.GetComponent<Defender>().Set_Uint_water();
-
-
+            player1.GetComponent<Defender>().Set_Uint_Is_attribute(what_attribte);
+            what_attribte = 0;                  // 속성 초기화
         }
         else if (what_attribte == 3)
         {
             WhereStones.SetActive(true);
-            //ground_Particle.SetActive(true);          // 땅속성 파티클 활성화
-            player1.GetComponent<Defender>().Set_Uint_ground();
-
+            player1.GetComponent<Defender>().Set_Uint_Is_attribute(what_attribte);
+            what_attribte = 0;                  // 속성 초기화
         }
-        else return;
+
+        Debug.Log("속성선택함");
     }
 
 
@@ -161,7 +167,6 @@ public class PlayerManager : MonoBehaviour
         player1.transform.position = _CreatePosition1.position;     //1번 줄에서 생성
         player1.SetActive(true);             // 플레이어 활성화
         WhereStones.SetActive(false);
-        what_attribte = 0;                  // 속성 초기화
 
     }
 
