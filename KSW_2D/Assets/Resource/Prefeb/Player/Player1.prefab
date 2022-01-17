@@ -13,9 +13,11 @@ GameObject:
   - component: {fileID: 7601132448886993339}
   - component: {fileID: 8119992154513284983}
   - component: {fileID: 6292235137970959003}
+  - component: {fileID: -2790851472457178510}
+  - component: {fileID: -6065272031070839203}
   m_Layer: 0
   m_Name: Player1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,12 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77291d8852fa49c43a9129f17ae15eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cost: 0
-  _atk: 0
-  _def: 0
-  _MaxHp: 0
   _speed: 0.5
-  attribute: 0
 --- !u!114 &6292235137970959003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +144,53 @@ MonoBehaviour:
   _def: 0
   _MaxHp: 0
   _speed: 1
+--- !u!61 &-2790851472457178510
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4660517591739535170}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.2815832, y: 0.6729746}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 3.125, y: 1.71875}
+    newSize: {x: 3.125, y: 1.71875}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.4989564, y: 1.3459492}
+  m_EdgeRadius: 0
+--- !u!50 &-6065272031070839203
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4660517591739535170}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 100
+  m_LinearDrag: 100
+  m_AngularDrag: 100
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6
 --- !u!1001 &6016690535329777929
 PrefabInstance:
   m_ObjectHideFlags: 0
