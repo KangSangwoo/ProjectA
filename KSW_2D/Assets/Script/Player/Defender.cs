@@ -34,7 +34,8 @@ public class Defender : MonoBehaviour
 
          Fire = false;
          Water = false;
-         Ground = false;    
+         Ground = false;
+
     }
 
     void Update()
@@ -70,7 +71,7 @@ public class Defender : MonoBehaviour
         if (Fire == true )
         {
             Debug.Log("파티컬 불");
-            Fire_Particle.Play();
+            Fire_Particle.Play();           // 왜 실행이 안될까?..
             Water_Particle.Stop();
             Ground_Particle.Stop();
         }
@@ -88,7 +89,11 @@ public class Defender : MonoBehaviour
             Water_Particle.Stop();
             Ground_Particle.Play();
         }
-        else return;
+
+        //플레이어 매니져가서 속성 초기화 함수실행
+        PlayerManager Pm = new PlayerManager();     
+        Pm.Reset_attribute();
+
 
     }
 

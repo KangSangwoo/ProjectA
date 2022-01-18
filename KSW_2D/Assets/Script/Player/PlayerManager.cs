@@ -63,7 +63,7 @@ public class PlayerManager : MonoBehaviour
     public GameObject WhereStone3;
 
     // 유닛 배열로
-    int[] players = new int[] { 1, 2, 3, 4 };       //인덱스 알아보기
+    //int[] players = new int[] { 1, 2, 3, 4 };       //인덱스 알아보기
 
 
 
@@ -113,6 +113,9 @@ public class PlayerManager : MonoBehaviour
     // 속성선택 함수2_물
     public void OnClick_attribute_2()
     {
+        Debug.Log("물속성 선택함");
+
+
         what_attribte = 2;
         Canvas_Left.SetActive(false);
         canvas_right_down.SetActive(false);
@@ -122,6 +125,9 @@ public class PlayerManager : MonoBehaviour
     // 속성선택 함수3_땅
     public void OnClick_attribute_3()
     {
+        Debug.Log("땅속성 선택함");
+
+
         what_attribte = 3;
         Canvas_Left.SetActive(false);
         canvas_right_down.SetActive(false);
@@ -135,28 +141,28 @@ public class PlayerManager : MonoBehaviour
         //unit_color.color = Color.red;     
         if (what_attribte == 1)
         {
-            Debug.Log("속성선택완료");
             WhereStones.SetActive(true);        // 소환위치버튼 활성화
             player1.GetComponent<Defender>().Set_Uint_Is_attribute(what_attribte);   // 속성bool값 변경 -> 파티클효과 플레이
-            what_attribte = 0;                  // 속성 초기화
-            Debug.Log("속성초기화");
-
 
         }
         else if (what_attribte == 2)
         {
             WhereStones.SetActive(true);
             player1.GetComponent<Defender>().Set_Uint_Is_attribute(what_attribte);
-            what_attribte = 0;                  // 속성 초기화
         }
         else if (what_attribte == 3)
         {
             WhereStones.SetActive(true);
             player1.GetComponent<Defender>().Set_Uint_Is_attribute(what_attribte);
-            what_attribte = 0;                  // 속성 초기화
         }
+        Debug.Log("속성선택완료");
 
-        Debug.Log("속성선택함");
+    }
+
+    public void Reset_attribute()
+    {
+        Debug.Log("속성초기화");
+        what_attribte = 0;                  // 속성 초기화
     }
 
 
