@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 2053666958212601008}
   - component: {fileID: 1179453639129378179}
   - component: {fileID: 7601132448886993339}
-  - component: {fileID: 8119992154513284983}
-  - component: {fileID: 6292235137970959003}
   - component: {fileID: -2790851472457178510}
   - component: {fileID: -6065272031070839203}
+  - component: {fileID: -1929474752088531562}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -108,42 +107,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8119992154513284983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4660517591739535170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77291d8852fa49c43a9129f17ae15eeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 0.5
---- !u!114 &6292235137970959003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4660517591739535170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67f108bd2114c35479c9827c8477f1ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Fire_Particle: {fileID: 1200292675532526774}
-  Water_Particle: {fileID: 4503363182170963653}
-  Ground_Particle: {fileID: 2313464539371569657}
-  Fire: 0
-  Water: 0
-  Ground: 0
-  _cost: 0
-  _atk: 0
-  _def: 0
-  _MaxHp: 0
-  _speed: 1
 --- !u!61 &-2790851472457178510
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -191,6 +154,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
+--- !u!114 &-1929474752088531562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4660517591739535170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77291d8852fa49c43a9129f17ae15eeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 1
 --- !u!1001 &6016690535329777929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -276,12 +252,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6016690535329777929}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &4503363182170963653 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 7854485413112985548, guid: 01579a377997be5469fd600733cc6169,
-    type: 3}
-  m_PrefabInstance: {fileID: 6016690535329777929}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8654764172673528814
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -364,12 +334,6 @@ PrefabInstance:
 --- !u!4 &5917902850559957619 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3043161630702463389, guid: b0af1dd414bb79a46a8bd9d30c462081,
-    type: 3}
-  m_PrefabInstance: {fileID: 8654764172673528814}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &2313464539371569657 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 6341338296631636503, guid: b0af1dd414bb79a46a8bd9d30c462081,
     type: 3}
   m_PrefabInstance: {fileID: 8654764172673528814}
   m_PrefabAsset: {fileID: 0}
@@ -460,12 +424,6 @@ PrefabInstance:
 --- !u!4 &8609197090611722268 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 816243150482686427, guid: ac8e2714d8983184b8fb2abdecf0fb85,
-    type: 3}
-  m_PrefabInstance: {fileID: 8946932762898676167}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &1200292675532526774 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 7818715308692057457, guid: ac8e2714d8983184b8fb2abdecf0fb85,
     type: 3}
   m_PrefabInstance: {fileID: 8946932762898676167}
   m_PrefabAsset: {fileID: 0}

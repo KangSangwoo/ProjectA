@@ -72,7 +72,7 @@ public class EnemyManager : MonoBehaviour
                 GameObject enemy = _enemyObjectPool[0];  // 리스트 처음으로 넣음
                 _enemyObjectPool.Remove(enemy);          // 오브젝트풀에서 제거
 
-                int rand = Random.Range(1, 3);          // 랜덤라인에서 생성
+                int rand = Random.Range(1,3);          // 랜덤라인에서 생성
                 if (rand == 1)
                 {
                     enemy.transform.position = _CreatePosition1.position;

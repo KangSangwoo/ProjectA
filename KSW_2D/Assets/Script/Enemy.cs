@@ -38,15 +38,14 @@ public class Enemy : MonoBehaviour
         this.transform.Translate(Vector3.left * _speed * Time.deltaTime);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name.Contains("Player"))
         {
-            collision.gameObject.SetActive(false);      // 임시로 닿으면 제거
-            Debug.Log("충돌");
+            Destroy(collision.gameObject);  //유닛 파괴
+            Debug.Log("유닛과 충돌");
         }
 
-        this.gameObject.SetActive(false);
         EnemyManager em = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
         em._enemyObjectPool.Add(this.gameObject);
 

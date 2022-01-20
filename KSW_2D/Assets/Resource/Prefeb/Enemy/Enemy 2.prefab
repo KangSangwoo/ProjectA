@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1393819627324849955}
   - component: {fileID: 1393819627324849954}
   - component: {fileID: 1393819627324849952}
-  - component: {fileID: 1393819627324849953}
-  - component: {fileID: 3817365083984395687}
+  - component: {fileID: 5432420675606400529}
   - component: {fileID: -856895487294499611}
+  - component: {fileID: -3767712145326869092}
   m_Layer: 0
   m_Name: Enemy 2
   m_TagString: Untagged
@@ -28,9 +28,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1393819627324849956}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.073, y: 0.1153, z: 0}
+  m_LocalScale: {x: 2.4026065, y: 2.3462205, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -105,20 +105,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1393819627324849953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1393819627324849956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 874daca1b87ebf44a8d4c2a7fcbfc418, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 1
---- !u!61 &3817365083984395687
+--- !u!61 &5432420675606400529
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,7 +118,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.006052345, y: -0.07061107}
+  m_Offset: {x: 0.0053373575, y: -0.08111699}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -142,7 +129,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.39846677, y: 0.42267668}
+  m_Size: {x: 0.39255095, y: 0.4032993}
   m_EdgeRadius: 0
 --- !u!50 &-856895487294499611
 Rigidbody2D:
@@ -165,3 +152,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
+--- !u!114 &-3767712145326869092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393819627324849956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 874daca1b87ebf44a8d4c2a7fcbfc418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 2

@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 4105272846455611385}
   - component: {fileID: 6360958235103048786}
   - component: {fileID: 6678965909709343907}
-  - component: {fileID: 6831533196109848464}
   m_Layer: 0
-  m_Name: Enemy 2 1
-  m_TagString: Untagged
+  m_Name: Enemy 2_Summon
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,19 +80,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &6831533196109848464
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5311084104317344601}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1019657818254724926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -160,26 +146,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3817365083984395687, guid: 5a32f9cb18a2d0a4ea3caee3d77d914a,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.07354179
-      objectReference: {fileID: 0}
-    - target: {fileID: 3817365083984395687, guid: 5a32f9cb18a2d0a4ea3caee3d77d914a,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.37930214
-      objectReference: {fileID: 0}
-    - target: {fileID: 3817365083984395687, guid: 5a32f9cb18a2d0a4ea3caee3d77d914a,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: 0.00077700615
-      objectReference: {fileID: 0}
-    - target: {fileID: 3817365083984395687, guid: 5a32f9cb18a2d0a4ea3caee3d77d914a,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.35978127
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a32f9cb18a2d0a4ea3caee3d77d914a, type: 3}
