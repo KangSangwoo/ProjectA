@@ -12,25 +12,20 @@ public class Defender : MonoBehaviour
     //파티클 제어 bool
     public bool Fire = false; 
     public bool Water = false; 
-    public bool Ground = false; 
+    public bool Ground = false;
 
     //유닛 스텟 정보
-    public float _cost;
-    public float _atk;
-    public float _def;
-    public float _MaxHp;
+    public string _name= "Defender";
+    public float _cost = 50;
+    public float _atk = 50;
+    public float _def = 60;
+    public float _MaxHp = 250;
     public float _speed = 1.0f;
     //public float attribute = 0 ;   // 0불, 1,물, 2땅
 
 
     void Start()
     {
-        _cost = 50;
-        _atk = 50;
-        _def = 60;
-        _MaxHp = 250;
-        _speed = 1.0f;
-        //Playeranager Pm = new PlayerManager();       
 
          Fire = false;
          Water = false;

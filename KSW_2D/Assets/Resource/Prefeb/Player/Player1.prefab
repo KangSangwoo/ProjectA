@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -2790851472457178510}
   - component: {fileID: -6065272031070839203}
   - component: {fileID: -1929474752088531562}
+  - component: {fileID: 2104656835109232198}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -166,6 +167,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77291d8852fa49c43a9129f17ae15eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speed: 2
+--- !u!114 &2104656835109232198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4660517591739535170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f108bd2114c35479c9827c8477f1ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Fire_Particle: {fileID: 7818715308692057457, guid: ac8e2714d8983184b8fb2abdecf0fb85,
+    type: 3}
+  Water_Particle: {fileID: 7854485413112985548, guid: 01579a377997be5469fd600733cc6169,
+    type: 3}
+  Ground_Particle: {fileID: 6341338296631636503, guid: b0af1dd414bb79a46a8bd9d30c462081,
+    type: 3}
+  Fire: 0
+  Water: 0
+  Ground: 0
+  _name: Defender
+  _cost: 50
+  _atk: 50
+  _def: 60
+  _MaxHp: 250
   _speed: 1
 --- !u!1001 &6016690535329777929
 PrefabInstance:

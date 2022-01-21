@@ -6,8 +6,12 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject Game_Text_Manager;
     public Text GameText;
-    public 
+
+    public GameObject Enemy_Tower1;
+    public GameObject Enemy_Tower2;
+    public GameObject Enemy_Tower3;
 
     void Start()
     {
@@ -20,10 +24,12 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
-        EnemyManager EM = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
+        // (몬스터 다 죽거나) , 적타워 콜라이더에 닿았을때
+        //EnemyManager EM = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
 
-
-        //if (EM.
+        GameText.text = "승리하셨습니다!";
+        Game_Text_Manager.SetActive(true);
+        
 
     }
 }

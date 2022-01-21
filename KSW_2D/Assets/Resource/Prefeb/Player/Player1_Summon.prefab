@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3440393942022157870}
   - component: {fileID: 9103106014335567549}
   - component: {fileID: 3719494507023579903}
-  - component: {fileID: 7104508518682098900}
   m_Layer: 0
   m_Name: Player1_Summon
   m_TagString: Untagged
@@ -81,32 +80,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &7104508518682098900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3888957562979342726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67f108bd2114c35479c9827c8477f1ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Fire_Particle: {fileID: 7818715308692057457, guid: ac8e2714d8983184b8fb2abdecf0fb85,
-    type: 3}
-  Water_Particle: {fileID: 7854485413112985548, guid: 01579a377997be5469fd600733cc6169,
-    type: 3}
-  Ground_Particle: {fileID: 6341338296631636503, guid: b0af1dd414bb79a46a8bd9d30c462081,
-    type: 3}
-  Fire: 0
-  Water: 0
-  Ground: 0
-  _cost: 0
-  _atk: 0
-  _def: 0
-  _MaxHp: 0
-  _speed: 1
 --- !u!1001 &1583333059460355022
 PrefabInstance:
   m_ObjectHideFlags: 0

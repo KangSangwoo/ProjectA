@@ -9,17 +9,17 @@ public class PlayerMove : MonoBehaviour
 
     void Start()
     {
-
     }
 
     void Update()
     {        
-      this.transform.Translate(Vector3.right * _speed * Time.deltaTime);  // 유닛이동
+        this.transform.Translate(Vector3.right * _speed * Time.deltaTime);  // 유닛이동
     }
 
     //몬스터와 부딪히면, 정지하고 공격모션
 
     //유닛과 부딪히면, 정지하고 대기모션
+
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -32,16 +32,26 @@ public class PlayerMove : MonoBehaviour
         else if (collision.gameObject.name.Contains("Player"))
         {
             Debug.Log("플레이어와 충돌");
-            this.transform.Translate(Vector3.right*0);  //정지
+            this.transform.Translate(Vector3.right * 0);  //정지
         }
+
+
 
         //		if (other.gameObject.tag == "Candy") 
         //    private void OnTriggerEnter2D(Collider2D other)
 
 
-
-
     }
 
+    // 적타워 도달하면 승리
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name.Contains("E_Tower"))
+        {
+            GameManager GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+            Debug.Log("적타워 도달");
+            GM.Win();
+        }
+    }
 }
 

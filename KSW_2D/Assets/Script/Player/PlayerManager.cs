@@ -48,6 +48,9 @@ public class PlayerManager : MonoBehaviour
     public GameObject attribute3;   // 땅
     int what_attribte;
 
+    //코스트 바
+    public GameObject Cost_Bar;
+
 
 
     // 속성효과_파티클
@@ -81,15 +84,16 @@ public class PlayerManager : MonoBehaviour
     {
         player1 = Instantiate(_Unit1_Source); // 유닛1 생성
         player1.SetActive(false);             // 일단 비활성화
-        player1.GetComponent<PlayerMove>();
+        player1.GetComponent<Defender>();
+        Defender DF_Unit = player1.GetComponentInChildren<Defender>();
 
         //유닛 정보 출력 
         Canvas_Left.SetActive(true);
-        txt_1 = string.Format("{0}", "Defender"); 
+        txt_1 = string.Format("{0}", DF_Unit._name); 
         Info_txt_1.text = txt_1;
-        txt_2 = string.Format("Cost:{0} HP: {1}", 50, 150);
+        txt_2 = string.Format("Cost:{0} HP: {1}",DF_Unit._cost , DF_Unit._MaxHp);
         Info_txt_2.text = txt_2;
-        txt_3 = string.Format("공격:{0} 방어:{1} 속도:{2}", 50, 60, 3);
+        txt_3 = string.Format("공격:{0} 방어:{1} 속도:{2}", DF_Unit._atk, DF_Unit._def, DF_Unit._speed);
         Info_txt_3.text = txt_3;
 
         //속성 선택창 활성화
@@ -142,18 +146,17 @@ public class PlayerManager : MonoBehaviour
         if (what_attribte == 1)
         {
             WhereStones.SetActive(true);        // 소환위치버튼 활성화
-            player1.GetComponent<Defender>().Set_Uint_Is_attribute(what_attribte);   // 속성bool값 변경 -> 파티클효과 플레이
-
+            player1.GetComponentInChildren<Defender>().Set_Uint_Is_attribute(what_attribte);   // 속성bool값 변경 -> 파티클효과 플레이
         }
         else if (what_attribte == 2)
         {
             WhereStones.SetActive(true);
-            player1.GetComponent<Defender>().Set_Uint_Is_attribute(what_attribte);
+            player1.GetComponentInChildren<Defender>().Set_Uint_Is_attribute(what_attribte);
         }
         else if (what_attribte == 3)
         {
             WhereStones.SetActive(true);
-            player1.GetComponent<Defender>().Set_Uint_Is_attribute(what_attribte);
+            player1.GetComponentInChildren<Defender>().Set_Uint_Is_attribute(what_attribte);
         }
         Debug.Log("속성선택완료");
 
@@ -170,9 +173,23 @@ public class PlayerManager : MonoBehaviour
     // 줄 선택 함수_1
     public void OnClick_WhereStone_1()
     {
-        player1.transform.position = _CreatePosition1.position;     //1번 줄에서 생성
-        player1.SetActive(true);             // 플레이어 활성화
-        WhereStones.SetActive(false);
+        if (Cost_Bar.GetComponent<Cost_Gague>().cost >=
+            player1.GetComponentInChildren<Defender>()._cost)
+        {
+            player1.transform.position = _CreatePosition1.position;     //1번 줄에서 생성
+            player1.SetActive(true);             // 플레이어 활성화
+            WhereStones.SetActive(false);
+        }
+        else
+        {
+            player1.SetActive(false);             // 플레이어 비활성화
+        }
+
+        Cost_Bar.GetComponent<Cost_Gague>().Unit_Sommon
+        (player1.GetComponentInChildren<Defender>()._cost);  // 코스트 감소 함수
+
+
+
 
     }
 
@@ -183,6 +200,8 @@ public class PlayerManager : MonoBehaviour
         player1.SetActive(true);             
         WhereStones.SetActive(false);
         what_attribte = 0;                  // 속성 초기화
+        Cost_Bar.GetComponent<Cost_Gague>().Unit_Sommon(player1.GetComponentInChildren<Defender>()._cost);  // 코스트 감소 함수
+
 
     }
 
@@ -193,6 +212,8 @@ public class PlayerManager : MonoBehaviour
         player1.SetActive(true);             
         WhereStones.SetActive(false);
         what_attribte = 0;                  // 속성 초기화
+        Cost_Bar.GetComponent<Cost_Gague>().Unit_Sommon(player1.GetComponentInChildren<Defender>()._cost);  // 코스트 감소 함수
+
 
     }
 

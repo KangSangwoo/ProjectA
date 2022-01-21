@@ -9,13 +9,16 @@ public class Cost_Gague : MonoBehaviour
     public Slider CostBar;
     public Text cost_txt;
 
-    float cost = 0;
-    public float plus_cost = 1.0f;
+    public GameObject Game_Text_Manager;
+    public Text GameText;
+
+    public float cost = 0;
+    public float plus_cost = 5.0f;
     float cost_max = 500.0f;
 
     void Start()
     {
-        Set_cost(200);    //처음에 코스트0으로 시작
+        Set_cost(0);    //처음에 코스트0으로 시작
     }
 
 
@@ -25,13 +28,37 @@ public class Cost_Gague : MonoBehaviour
     }
 
 
+    // 코스트 변화
     public void Change_cost()
     {
         cost += plus_cost * Time.deltaTime;      // 코스트 1씩 계속 오름
+
         Set_cost(cost);
     }
 
+    //유닛소환
+    public void Unit_Sommon(float _cost)
+    {
+        if (_cost <= cost)
+        {
+            Set_cost(cost - _cost);
+        }
+        else 
+        {
+            Set_cost(cost);
+            GameText.text = "코스트가 부족합니다";
+            Game_Text_Manager.SetActive(true);
+            //Invoke("GameTextOff", 2f);
+        }
+    }
 
+    // 게임텍스트
+    public void GameTextOff()
+    {
+        Game_Text_Manager.SetActive(false);
+    }
+
+    //코스트 설정
     public void Set_cost(float _cost)
     {
         cost = _cost;           // 입력받은 코스트를 변수로
@@ -47,13 +74,14 @@ public class Cost_Gague : MonoBehaviour
             {
                 cost = cost_max;        // max 못넘게
             }
-            txt = string.Format("Cost: {0:N0}/{1}", cost, cost_max); //수치표기
+
+            txt = string.Format("Cost: {0:N0}/{1}", cost, cost_max); //수치표기 , 소숫점없이
             cost_txt.text = txt;
         }
 
-        CostBar.value = cost / cost_max;        // 이미지 채우기
-        //img.fillAmount = cost / cost_max;     // 이미지 채우기
+        CostBar.value = cost / cost_max;        // 이미지 채우기 => 밸류값
 
+        //img.fillAmount = cost / cost_max;     // 이미지 채우기
 
     }
 }
