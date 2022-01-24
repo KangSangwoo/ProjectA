@@ -3659,9 +3659,12 @@ MonoBehaviour:
   img: {fileID: 399283813}
   CostBar: {fileID: 968330238}
   cost_txt: {fileID: 905460155}
-  Game_Text_Manager: {fileID: 0}
-  GameText: {fileID: 0}
+  Game_Text_Manager: {fileID: 314103321}
+  GameText: {fileID: 1561195409}
+  cost: 0
   plus_cost: 5
+  Is_Cost_ok: 0
+  PM: {fileID: 1796574565}
 --- !u!1 &973515203
 GameObject:
   m_ObjectHideFlags: 0
@@ -5683,7 +5686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.21960784, g: 0.21960784, b: 0.21960784, a: 1}
+  m_Color: {r: 0.09251513, g: 0.1804458, b: 0.9339623, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:

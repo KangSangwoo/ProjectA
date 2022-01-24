@@ -98,6 +98,7 @@ public class PlayerManager : MonoBehaviour
 
         //속성 선택창 활성화
         canvas_right_down.SetActive(true);
+
     }
 
     // 속성선택 함수1_불
@@ -108,8 +109,10 @@ public class PlayerManager : MonoBehaviour
         what_attribte = 1;
         Canvas_Left.SetActive(false);           // 상태/속성창 비활성화하고 속성선택 완료 함수 실행
         canvas_right_down.SetActive(false);
-       // attribute1 = Instantiate(Fire_Particle);       //파티클 오브젝트로 생성
-       // attribute1.transform.position = player1.transform.position;     // 유닛의 위치로
+        // attribute1 = Instantiate(Fire_Particle);       //파티클 오브젝트로 생성
+        // attribute1.transform.position = player1.transform.position;     // 유닛의 위치로
+
+        
         Is_attribute_done();
 
     }
@@ -139,6 +142,8 @@ public class PlayerManager : MonoBehaviour
     }
 
 
+
+
     // 속성선택 완료하면 출력하는 함수
     public void Is_attribute_done()
     {
@@ -158,17 +163,38 @@ public class PlayerManager : MonoBehaviour
             WhereStones.SetActive(true);
             player1.GetComponentInChildren<Defender>().Set_Uint_Is_attribute(what_attribte);
         }
-        Debug.Log("속성선택완료");
+        //Debug.Log("속성선택완료");
 
     }
 
     public void Reset_attribute()
     {
-        Debug.Log("속성초기화");
+        //Debug.Log("속성초기화");
         what_attribte = 0;                  // 속성 초기화
     }
 
+    //코스트가 부족할 경우 -> 소환 불가
+    public void Not_summon()
+    {
+        if (Cost_Bar.GetComponent<Cost_Gague>().Is_Cost_ok)
+        {
+            Debug.Log("버튼 활성화");
+            WhereStone1.GetComponent<Button>().interactable = true;
+            WhereStone2.GetComponent<Button>().interactable = true;
+            WhereStone3.GetComponent<Button>().interactable = true;
 
+        }
+        else
+        {
+            Debug.Log("버튼 비활성화");
+            WhereStone1.GetComponent<Button>().interactable = false;
+            WhereStone2.GetComponent<Button>().interactable = false;
+            WhereStone3.GetComponent<Button>().interactable = false;
+
+        }
+
+        
+    }
 
     // 줄 선택 함수_1
     public void OnClick_WhereStone_1()

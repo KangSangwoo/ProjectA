@@ -5,26 +5,34 @@ using UnityEngine.UI;
 
 public class Cost_Gague : MonoBehaviour
 {
+    // 코스트 이미지
     public Image img;
     public Slider CostBar;
     public Text cost_txt;
 
+    //게임 텍스트
     public GameObject Game_Text_Manager;
     public Text GameText;
 
+    //코스트 관련
     public float cost = 0;
     public float plus_cost = 5.0f;
     float cost_max = 500.0f;
 
+    public bool Is_Cost_ok;
+
+    public GameObject PM;
+
+
     void Start()
     {
-        Set_cost(0);    //처음에 코스트0으로 시작
+        Set_cost(50);    //처음에 코스트0으로 시작
     }
-
-
+    
     void Update()
     {
         Change_cost();  // 코스트 변화
+
     }
 
 
@@ -39,21 +47,29 @@ public class Cost_Gague : MonoBehaviour
     //유닛소환
     public void Unit_Sommon(float _cost)
     {
+
         if (_cost <= cost)
         {
             Set_cost(cost - _cost);
+            Is_Cost_ok = true;
         }
         else 
         {
             Set_cost(cost);
             GameText.text = "코스트가 부족합니다";
             Game_Text_Manager.SetActive(true);
-            //Invoke("GameTextOff", 2f);
+            Is_Cost_ok = false;
+            
+            Invoke("GameTextOff", 2f);
         }
+
+        PM.GetComponent<PlayerManager>().Not_summon();
+
     }
 
+
     // 게임텍스트
-    public void GameTextOff()
+    public void GameTextOff()   
     {
         Game_Text_Manager.SetActive(false);
     }

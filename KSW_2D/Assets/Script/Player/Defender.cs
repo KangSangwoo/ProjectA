@@ -10,7 +10,7 @@ public class Defender : MonoBehaviour
     public ParticleSystem Ground_Particle;
 
     //파티클 제어 bool
-    public bool Fire = false; 
+    public bool Fire = true; 
     public bool Water = false; 
     public bool Ground = false;
 
@@ -23,14 +23,11 @@ public class Defender : MonoBehaviour
     public float _speed = 1.0f;
     //public float attribute = 0 ;   // 0불, 1,물, 2땅
 
+    public GameObject Pm;
+
 
     void Start()
     {
-
-         Fire = false;
-         Water = false;
-         Ground = false;
-
     }
 
     void Update()
@@ -44,18 +41,23 @@ public class Defender : MonoBehaviour
         {
             Debug.Log("클릭값 불");
             Fire = true;
-        }
+            Water = false;
+            Ground = false;
+}
         else if (_what_attribte == 2)
         {
             Debug.Log("클릭값 물");
+            Fire = false;
             Water = true;
+            Ground = false;
         }
         else if (_what_attribte == 3)
         {
             Debug.Log("클릭값 땅");
+            Fire = false;
+            Water = false;
             Ground = true;
         }
-        else return;
 
         Set_Uint_attribute();
     }
@@ -86,9 +88,8 @@ public class Defender : MonoBehaviour
         }
 
         //플레이어 매니져가서 속성 초기화 함수실행
-        PlayerManager Pm = new PlayerManager();     
-        Pm.Reset_attribute();
-
+        //Pm.Reset_attribute();
+        Pm.GetComponent<PlayerManager>().Reset_attribute();
 
     }
 
