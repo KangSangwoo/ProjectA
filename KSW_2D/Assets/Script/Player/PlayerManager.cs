@@ -30,7 +30,16 @@ public class PlayerManager : MonoBehaviour
     public GameObject _UnitButton1;      
     public GameObject _UnitButton2;      
     public GameObject _UnitButton3;      
-    public GameObject _UnitButton4;      
+    public GameObject _UnitButton4;
+
+    //유닛bool값
+    public bool is_Unit_1;
+    public bool is_Unit_2;
+    public bool is_Unit_3;
+    public bool is_Unit_4;
+
+
+
 
     //유닛 정보
     public Text Info_txt_1;         // 이름 
@@ -46,7 +55,6 @@ public class PlayerManager : MonoBehaviour
     public GameObject attribute1;   // 불
     public GameObject attribute2;   // 물
     public GameObject attribute3;   // 땅
-    int what_attribte;
 
     //코스트 바
     public GameObject Cost_Bar;
@@ -76,16 +84,16 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
-
+        // 유닛버튼 클릭 - 유닛정보 출력/ 속성정보 출력 - 속성선택 - 소환위치 선택 - 소환 (모든 불값 초기화)
     }
 
     //유닛버튼1 클릭
     public void OnClick_UnitButton1()
     {
+        is_Unit_1 = true;
         player1 = Instantiate(_Unit1_Source); // 유닛1 생성
         player1.SetActive(false);             // 일단 비활성화
-        player1.GetComponent<Defender>();
-        Defender DF_Unit = player1.GetComponentInChildren<Defender>();
+        Defender DF_Unit = player1.GetComponentInChildren<Defender>();      // 스크립트 가져오기
 
         //유닛 정보 출력 
         Canvas_Left.SetActive(true);
@@ -96,24 +104,29 @@ public class PlayerManager : MonoBehaviour
         txt_3 = string.Format("공격:{0} 방어:{1} 속도:{2}", DF_Unit._atk, DF_Unit._def, DF_Unit._speed);
         Info_txt_3.text = txt_3;
 
-        //속성 선택창 활성화
+        //속성정보 출력
         canvas_right_down.SetActive(true);
 
     }
+
 
     // 속성선택 함수1_불
     public void OnClick_attribute_1()
     {
         Debug.Log("불속성 선택함");
+        if (is_Unit_1)
+        {
+            player1.GetComponentInChildren<Defender>()._attribute = 1;      // 속성  <불>
+            Canvas_Left.SetActive(false);           // 상태창 비활성화
+            canvas_right_down.SetActive(false);     // 속성창 비활성화
+            WhereStones.SetActive(true);        // 소환위치버튼 활성화
+            player1.GetComponentInChildren<Defender>().Set_Uint_Is_attribute();   // 속성bool값 변경 -> 파티클효과 플레이
+        }
+        else if (is_Unit_2)
+        {
 
-        what_attribte = 1;
-        Canvas_Left.SetActive(false);           // 상태/속성창 비활성화하고 속성선택 완료 함수 실행
-        canvas_right_down.SetActive(false);
-        // attribute1 = Instantiate(Fire_Particle);       //파티클 오브젝트로 생성
-        // attribute1.transform.position = player1.transform.position;     // 유닛의 위치로
-
+        }
         
-        Is_attribute_done();
 
     }
 
@@ -123,10 +136,8 @@ public class PlayerManager : MonoBehaviour
         Debug.Log("물속성 선택함");
 
 
-        what_attribte = 2;
         Canvas_Left.SetActive(false);
         canvas_right_down.SetActive(false);
-        Is_attribute_done();
     }
     
     // 속성선택 함수3_땅
@@ -135,70 +146,17 @@ public class PlayerManager : MonoBehaviour
         Debug.Log("땅속성 선택함");
 
 
-        what_attribte = 3;
         Canvas_Left.SetActive(false);
         canvas_right_down.SetActive(false);
-        Is_attribute_done();
     }
 
 
 
-
-    // 속성선택 완료하면 출력하는 함수
-    public void Is_attribute_done()
-    {
-        //unit_color.color = Color.red;     
-        if (what_attribte == 1)
-        {
-            WhereStones.SetActive(true);        // 소환위치버튼 활성화
-            player1.GetComponentInChildren<Defender>().Set_Uint_Is_attribute(what_attribte);   // 속성bool값 변경 -> 파티클효과 플레이
-        }
-        else if (what_attribte == 2)
-        {
-            WhereStones.SetActive(true);
-            player1.GetComponentInChildren<Defender>().Set_Uint_Is_attribute(what_attribte);
-        }
-        else if (what_attribte == 3)
-        {
-            WhereStones.SetActive(true);
-            player1.GetComponentInChildren<Defender>().Set_Uint_Is_attribute(what_attribte);
-        }
-        //Debug.Log("속성선택완료");
-
-    }
-
-    public void Reset_attribute()
-    {
-        //Debug.Log("속성초기화");
-        what_attribte = 0;                  // 속성 초기화
-    }
-
-    //코스트가 부족할 경우 -> 소환 불가
-    public void Not_summon()
-    {
-        if (Cost_Bar.GetComponent<Cost_Gague>().Is_Cost_ok)
-        {
-            Debug.Log("버튼 활성화");
-            WhereStone1.GetComponent<Button>().interactable = true;
-            WhereStone2.GetComponent<Button>().interactable = true;
-            WhereStone3.GetComponent<Button>().interactable = true;
-
-        }
-        else
-        {
-            Debug.Log("버튼 비활성화");
-            WhereStone1.GetComponent<Button>().interactable = false;
-            WhereStone2.GetComponent<Button>().interactable = false;
-            WhereStone3.GetComponent<Button>().interactable = false;
-
-        }
-
-        
-    }
 
     // 줄 선택 함수_1
     public void OnClick_WhereStone_1()
     {
+        // 코스트바가 유닛요구 코스트보다 클 경우
         if (Cost_Bar.GetComponent<Cost_Gague>().cost >=
             player1.GetComponentInChildren<Defender>()._cost)
         {
@@ -206,17 +164,16 @@ public class PlayerManager : MonoBehaviour
             player1.SetActive(true);             // 플레이어 활성화
             WhereStones.SetActive(false);
         }
+        // 코스트바가 유닛요구 코스트보다 작을 경우
         else
         {
             player1.SetActive(false);             // 플레이어 비활성화
+            WhereStones.SetActive(false);
+
         }
 
-        Cost_Bar.GetComponent<Cost_Gague>().Unit_Sommon
-        (player1.GetComponentInChildren<Defender>()._cost);  // 코스트 감소 함수
-
-
-
-
+        Cost_Bar.GetComponent<Cost_Gague>().Unit_Sommon     // 유닛소환 함수 호출(코스트 감소)
+        (player1.GetComponentInChildren<Defender>()._cost); 
     }
 
     // 줄 선택 함수_2
@@ -225,10 +182,8 @@ public class PlayerManager : MonoBehaviour
         player1.transform.position = _CreatePosition2.position;     //2번 줄에서 생성
         player1.SetActive(true);             
         WhereStones.SetActive(false);
-        what_attribte = 0;                  // 속성 초기화
+        //what_attribte = 0;                  // 속성 초기화
         Cost_Bar.GetComponent<Cost_Gague>().Unit_Sommon(player1.GetComponentInChildren<Defender>()._cost);  // 코스트 감소 함수
-
-
     }
 
     // 줄 선택 함수_3
@@ -237,13 +192,9 @@ public class PlayerManager : MonoBehaviour
         player1.transform.position = _CreatePosition3.position;     //3번 줄에서 생성
         player1.SetActive(true);             
         WhereStones.SetActive(false);
-        what_attribte = 0;                  // 속성 초기화
+        //what_attribte = 0;                  // 속성 초기화
         Cost_Bar.GetComponent<Cost_Gague>().Unit_Sommon(player1.GetComponentInChildren<Defender>()._cost);  // 코스트 감소 함수
-
-
     }
-
-
 
 
     // 유닛2 생성
@@ -251,7 +202,6 @@ public class PlayerManager : MonoBehaviour
     {
         GameObject player2 = Instantiate(_Unit2_Source); 
         player2.transform.position = _CreatePosition2.position;    
-
     }
 
     // 유닛3 생성
@@ -259,7 +209,6 @@ public class PlayerManager : MonoBehaviour
     {
         GameObject player3 = Instantiate(_Unit3_Source); 
         player3.transform.position = _CreatePosition3.position;    
-
     }
 
     // 유닛4 생성
@@ -267,7 +216,6 @@ public class PlayerManager : MonoBehaviour
     {
         GameObject player4 = Instantiate(_Unit4_Source); 
         player4.transform.position = _CreatePosition1.position;    
-
     }
 
 

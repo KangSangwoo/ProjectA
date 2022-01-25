@@ -19,28 +19,23 @@ public class Cost_Gague : MonoBehaviour
     public float plus_cost = 5.0f;
     float cost_max = 500.0f;
 
-    public bool Is_Cost_ok;
-
     public GameObject PM;
 
 
     void Start()
     {
-        Set_cost(50);    //처음에 코스트0으로 시작
+        Set_cost(80);    //처음에 코스트0으로 시작
     }
     
     void Update()
     {
         Change_cost();  // 코스트 변화
-
     }
-
 
     // 코스트 변화
     public void Change_cost()
     {
         cost += plus_cost * Time.deltaTime;      // 코스트 1씩 계속 오름
-
         Set_cost(cost);
     }
 
@@ -51,20 +46,16 @@ public class Cost_Gague : MonoBehaviour
         if (_cost <= cost)
         {
             Set_cost(cost - _cost);
-            Is_Cost_ok = true;
         }
         else 
         {
             Set_cost(cost);
             GameText.text = "코스트가 부족합니다";
             Game_Text_Manager.SetActive(true);
-            Is_Cost_ok = false;
             
             Invoke("GameTextOff", 2f);
+            //PM.GetComponent<PlayerManager>().Not_summon();
         }
-
-        PM.GetComponent<PlayerManager>().Not_summon();
-
     }
 
 

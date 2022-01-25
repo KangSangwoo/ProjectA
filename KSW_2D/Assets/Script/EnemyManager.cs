@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class EnemyManager : MonoBehaviour
 {
@@ -9,14 +11,18 @@ public class EnemyManager : MonoBehaviour
     public GameObject _enemy3;
     public GameObject _enemy4;
 
+
+    //생성시간
     float _currentTime;
     public float _createTime = 1.0f;
-
     float _minTime = 2.0f;      // 생성시간 랜덤범위
     float _maxTime = 3.0f;
 
+    //에너미 풀
     public int _poolSize = 10;                      // 적의 총 갯수
     public List<GameObject> _enemyObjectPool;       // 적 리스트
+    public int Monster_Number;                      // 적 갯수
+    public Text Monster_Number_txt;           // 적 갯수 텍스트
 
     public Transform _CreatePosition1;     //생성 위치1
     public Transform _CreatePosition2;     //생성 위치2
@@ -59,6 +65,10 @@ public class EnemyManager : MonoBehaviour
             _enemyObjectPool.Add(enemy);
             enemy.SetActive(false);
         }
+
+        // 남은몹 갯수 표시
+        //Monster_Number_txt.text = Monster_Number;
+
     }
 
     void Update()
