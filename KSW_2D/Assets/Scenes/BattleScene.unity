@@ -3778,7 +3778,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1139.3, y: 406.99994}
+  m_AnchoredPosition: {x: 1071, y: 407}
   m_SizeDelta: {x: 47.24051, y: 30.794342}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &976090889
@@ -5990,7 +5990,7 @@ MonoBehaviour:
   _poolSize: 10
   _enemyObjectPool: []
   Monster_Number: 0
-  Monster_Number_txt: {fileID: 0}
+  Monster_Number_txt: {fileID: 1989664203}
   _CreatePosition1: {fileID: 835052896}
   _CreatePosition2: {fileID: 2086351640}
   _CreatePosition3: {fileID: 1798805890}
@@ -6809,6 +6809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Game_Text_Manager: {fileID: 314103321}
   GameText: {fileID: 1561195409}
+  Monster_Number_Text: {fileID: 0}
   Enemy_Tower1: {fileID: 835052895}
   Enemy_Tower2: {fileID: 2086351639}
   Enemy_Tower3: {fileID: 1798805889}
@@ -7056,8 +7057,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1369, y: 406.99994}
-  m_SizeDelta: {x: 30.59301, y: 30.794342}
+  m_AnchoredPosition: {x: 1333.1, y: 406.99994}
+  m_SizeDelta: {x: 36.396538, y: 30.794342}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1989664203
 MonoBehaviour:
@@ -7091,7 +7092,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 10
+  m_Text: 10/10
 --- !u!222 &1989664204
 CanvasRenderer:
   m_ObjectHideFlags: 0

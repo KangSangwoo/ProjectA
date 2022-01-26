@@ -21,7 +21,7 @@ public class EnemyManager : MonoBehaviour
     //에너미 풀
     public int _poolSize = 10;                      // 적의 총 갯수
     public List<GameObject> _enemyObjectPool;       // 적 리스트
-    public int Monster_Number;                      // 적 갯수
+    public int Monster_Number = 0;                      // 적 갯수
     public Text Monster_Number_txt;           // 적 갯수 텍스트
 
     public Transform _CreatePosition1;     //생성 위치1
@@ -66,8 +66,6 @@ public class EnemyManager : MonoBehaviour
             enemy.SetActive(false);
         }
 
-        // 남은몹 갯수 표시
-        //Monster_Number_txt.text = Monster_Number;
 
     }
 
@@ -96,6 +94,10 @@ public class EnemyManager : MonoBehaviour
                     enemy.transform.position = _CreatePosition3.position;
                 }
                 enemy.SetActive(true);  // 활성화 시킴
+
+                Monster_Number++;
+                Monster_Number_txt.text = string.Format("{0}/{1}",_poolSize - Monster_Number, _poolSize);   // 남은몹 갯수표시
+
             }
             _currentTime = 0;
 

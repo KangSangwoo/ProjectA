@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public float _speed = 1.0f;
 
-
+    public bool Is_Monster_Die;
 
 
     void Start()
@@ -44,6 +44,7 @@ public class Enemy : MonoBehaviour
         {
             Destroy(collision.gameObject);  //유닛 파괴
             Debug.Log("유닛과 충돌");
+            //몬스터 죽음 늘리기
         }
 
         EnemyManager em = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();

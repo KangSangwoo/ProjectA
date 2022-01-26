@@ -116,7 +116,7 @@ public class PlayerManager : MonoBehaviour
         Debug.Log("불속성 선택함");
         if (is_Unit_1)
         {
-            player1.GetComponentInChildren<Defender>()._attribute = 1;      // 속성  <불>
+            player1.GetComponentInChildren<Defender>()._attribute = "fire";      // 속성  <불>
             Canvas_Left.SetActive(false);           // 상태창 비활성화
             canvas_right_down.SetActive(false);     // 속성창 비활성화
             WhereStones.SetActive(true);        // 소환위치버튼 활성화
@@ -163,6 +163,10 @@ public class PlayerManager : MonoBehaviour
             player1.transform.position = _CreatePosition1.position;     //1번 줄에서 생성
             player1.SetActive(true);             // 플레이어 활성화
             WhereStones.SetActive(false);
+
+            //player1.transform.Find("Particle System_Fire").gameObject.SetActive(true);
+            //player1.transform.GetChild(0).gameObject.SetActive(true);
+
         }
         // 코스트바가 유닛요구 코스트보다 작을 경우
         else

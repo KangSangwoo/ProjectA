@@ -21,7 +21,7 @@ public class Defender : MonoBehaviour
     public float _def = 60;
     public float _MaxHp = 250;
     public float _speed = 1.0f;
-    public float _attribute = 0 ;   // 0불, 1,물, 2땅
+    public string _attribute;   // fire , water, ground
 
     public GameObject Pm;
 
@@ -37,34 +37,40 @@ public class Defender : MonoBehaviour
     //bool값 변경
     public void Set_Uint_Is_attribute()
     {
-        if (_attribute == 1)        // 불속성 클릭 -> 불속성 부여
+        switch (_attribute)
         {
-            Debug.Log("클릭값 불");
+            case "fire":        // 불속성 클릭 -> 불속성 부여
+             Debug.Log("클릭값 불");
             Fire = true;
             Water = false;
             Ground = false;
-}
-        else if (_attribute == 2)
-        {
+                Fire_Particle.Play();           // 왜 실행이 안될까?
+                Water_Particle.Stop();
+                Ground_Particle.Stop();
+                break;
+
+            case "water":
             Debug.Log("클릭값 물");
             Fire = false;
             Water = true;
             Ground = false;
-        }
-        else if (_attribute == 3)
-        {
+            break;
+
+            case "Ground":
             Debug.Log("클릭값 땅");
             Fire = false;
             Water = false;
             Ground = true;
+            break;
         }
 
-        Set_Uint_attribute();
+        //Set_Uint_attribute();
     }
 
     // 파티클 효과 플레이
     public void Set_Uint_attribute()      
     {
+
         if (Fire == true )
         {
             Debug.Log("파티컬 불");

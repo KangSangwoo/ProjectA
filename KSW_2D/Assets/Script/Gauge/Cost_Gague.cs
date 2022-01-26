@@ -55,8 +55,10 @@ public class Cost_Gague : MonoBehaviour
             
             Invoke("GameTextOff", 2f);
             //PM.GetComponent<PlayerManager>().Not_summon();
+
         }
     }
+
 
 
     // 게임텍스트
@@ -70,7 +72,6 @@ public class Cost_Gague : MonoBehaviour
     {
         cost = _cost;           // 입력받은 코스트를 변수로
 
-        string txt = "";
         if (cost <= 0)
         {
             cost = 0;       // 0이하면 0 (이럴경우 없긴함)
@@ -82,8 +83,7 @@ public class Cost_Gague : MonoBehaviour
                 cost = cost_max;        // max 못넘게
             }
 
-            txt = string.Format("Cost: {0:N0}/{1}", cost, cost_max); //수치표기 , 소숫점없이
-            cost_txt.text = txt;
+            cost_txt.text = string.Format("Cost: {0:N0}/{1}", cost, cost_max); //수치표기 , 소숫점없이
         }
 
         CostBar.value = cost / cost_max;        // 이미지 채우기 => 밸류값

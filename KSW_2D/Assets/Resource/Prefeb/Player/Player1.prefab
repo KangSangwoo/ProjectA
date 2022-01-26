@@ -195,6 +195,8 @@ MonoBehaviour:
   _def: 60
   _MaxHp: 250
   _speed: 1
+  _attribute: 
+  Pm: {fileID: 0}
 --- !u!1001 &6016690535329777929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -270,7 +272,7 @@ PrefabInstance:
     - target: {fileID: 7854485413112985548, guid: 01579a377997be5469fd600733cc6169,
         type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01579a377997be5469fd600733cc6169, type: 3}
@@ -355,7 +357,7 @@ PrefabInstance:
     - target: {fileID: 6341338296631636503, guid: b0af1dd414bb79a46a8bd9d30c462081,
         type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0af1dd414bb79a46a8bd9d30c462081, type: 3}
@@ -440,7 +442,7 @@ PrefabInstance:
     - target: {fileID: 7818715308692057457, guid: ac8e2714d8983184b8fb2abdecf0fb85,
         type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7818715308692057457, guid: ac8e2714d8983184b8fb2abdecf0fb85,
         type: 3}
