@@ -9,11 +9,6 @@ public class Defender : MonoBehaviour
     public ParticleSystem Water_Particle;
     public ParticleSystem Ground_Particle;
 
-    //파티클 제어 bool
-    public bool Fire = true; 
-    public bool Water = false; 
-    public bool Ground = false;
-
     //유닛 스텟 정보
     public string _name= "Defender";
     public float _cost = 50;
@@ -23,7 +18,7 @@ public class Defender : MonoBehaviour
     public float _speed = 1.0f;
     public string _attribute;   // fire , water, ground
 
-    public GameObject Pm;
+   // public GameObject Pm;
 
 
     void Start()
@@ -34,65 +29,36 @@ public class Defender : MonoBehaviour
     {
     }
 
-    //bool값 변경
-    public void Set_Uint_Is_attribute()
+    public void Set_Uint_attribute()
     {
         switch (_attribute)
         {
             case "fire":        // 불속성 클릭 -> 불속성 부여
-             Debug.Log("클릭값 불");
-            Fire = true;
-            Water = false;
-            Ground = false;
-                Fire_Particle.Play();           // 왜 실행이 안될까?
-                Water_Particle.Stop();
-                Ground_Particle.Stop();
-                break;
+            Debug.Log("클릭값 불");
+
+            Fire_Particle.Play();           // 왜 실행이 안될까?
+            Water_Particle.Stop();
+            Ground_Particle.Stop();
+            break;
 
             case "water":
             Debug.Log("클릭값 물");
-            Fire = false;
-            Water = true;
-            Ground = false;
+            Fire_Particle.Stop();
+            Water_Particle.Play();
+            Ground_Particle.Stop();
             break;
 
             case "Ground":
             Debug.Log("클릭값 땅");
-            Fire = false;
-            Water = false;
-            Ground = true;
-            break;
-        }
-
-        //Set_Uint_attribute();
-    }
-
-    // 파티클 효과 플레이
-    public void Set_Uint_attribute()      
-    {
-
-        if (Fire == true )
-        {
-            Debug.Log("파티컬 불");
-            Fire_Particle.Play();           // 왜 실행이 안될까?..
-            Water_Particle.Stop();
-            Ground_Particle.Stop();
-        }
-        else if (Water == true)
-        {
-            Debug.Log("파티컬 물");
-            Fire_Particle.Stop();
-            Water_Particle.Play();
-            Ground_Particle.Stop();
-        }
-        else if (Ground == true)
-        {
-            Debug.Log("파티컬 땅");
             Fire_Particle.Stop();
             Water_Particle.Stop();
             Ground_Particle.Play();
+            break;
         }
 
+    }
+
+ 
         
     }
 
@@ -101,4 +67,3 @@ public class Defender : MonoBehaviour
 
 
 
-}

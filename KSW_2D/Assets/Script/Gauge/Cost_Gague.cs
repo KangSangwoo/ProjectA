@@ -24,7 +24,7 @@ public class Cost_Gague : MonoBehaviour
 
     void Start()
     {
-        Set_cost(80);    //처음에 코스트0으로 시작
+        Set_cost(100);    //처음에 코스트150으로 시작
     }
     
     void Update()
@@ -58,8 +58,6 @@ public class Cost_Gague : MonoBehaviour
 
         }
     }
-
-
 
     // 게임텍스트
     public void GameTextOff()   
