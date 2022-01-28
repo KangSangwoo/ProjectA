@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3440393942022157870}
   - component: {fileID: 9103106014335567549}
   - component: {fileID: 3719494507023579903}
+  - component: {fileID: -2364291814780356498}
   m_Layer: 0
   m_Name: Player1_Summon
   m_TagString: Untagged
@@ -80,6 +81,21 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &-2364291814780356498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3888957562979342726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfec267d716747a4d8c9e2935856c89e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP_Bar_prefeb: {fileID: 0}
+  cnavas: {fileID: 0}
+  height: 1.7
 --- !u!1001 &7911718546843245000
 PrefabInstance:
   m_ObjectHideFlags: 0

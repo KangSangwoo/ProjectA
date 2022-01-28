@@ -26,9 +26,7 @@ public class Particles : MonoBehaviour
         {
             Debug.Log("파티클 마우스 누름");
             Fire_Particle.Play();
-    
-
-        }
+            }
 
 
 

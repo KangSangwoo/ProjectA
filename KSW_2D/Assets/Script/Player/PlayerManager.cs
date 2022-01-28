@@ -180,13 +180,11 @@ public class PlayerManager : MonoBehaviour
 
             //player1.transform.Find("Particle System_Fire").gameObject.SetActive(true);
             //player1.transform.GetChild(0).gameObject.SetActive(true);
-
         }
         // 코스트바가 유닛요구 코스트보다 작을 경우
         else
         {
             player1.SetActive(false);             // 플레이어 비활성화
-
         }
 
         WhereStones.SetActive(false);

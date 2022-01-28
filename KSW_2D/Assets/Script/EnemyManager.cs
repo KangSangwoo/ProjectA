@@ -6,10 +6,15 @@ using UnityEngine.UI;
 
 public class EnemyManager : MonoBehaviour
 {
-    public GameObject _enemy1;
-    public GameObject _enemy2;
-    public GameObject _enemy3;
-    public GameObject _enemy4;
+    public GameObject _enemy1_Source;
+    public GameObject _enemy2_Source;
+    public GameObject _enemy3_Source;
+    public GameObject _enemy4_Source;
+
+    GameObject enemy1;
+    GameObject enemy2;
+    GameObject enemy3;
+    GameObject enemy4;
 
 
     //생성시간
@@ -38,8 +43,6 @@ public class EnemyManager : MonoBehaviour
     {
         _createTime = Random.Range(_minTime, _maxTime);
 
-        GameObject enemy;
-
         _enemyObjectPool = new List<GameObject>();
         for (int i = 0; i < _poolSize; i++)     // 10까지 반복해서 생성
         {
@@ -47,25 +50,25 @@ public class EnemyManager : MonoBehaviour
 
             if (rand <= 30)
             {
-                enemy = Instantiate(_enemy1);
+                enemy1 = Instantiate(_enemy1_Source);
             }
             else if (rand <= 60)
             {
-                enemy = Instantiate(_enemy2);
+                enemy1 = Instantiate(_enemy2_Source);
             }
             else if (rand <= 80)
             {
-                enemy = Instantiate(_enemy3);
+                enemy1 = Instantiate(_enemy3_Source);
             }
             else
             {
-                enemy = Instantiate(_enemy4);
-
+                enemy1 = Instantiate(_enemy4_Source);
             }
-            _enemyObjectPool.Add(enemy);
-            enemy.SetActive(false);
+            _enemyObjectPool.Add(enemy1);
+            enemy1.SetActive(false);
         }
 
+        //몬스터 스텟 정보
 
     }
 
@@ -77,23 +80,23 @@ public class EnemyManager : MonoBehaviour
         {
             if (_enemyObjectPool.Count > 0)
             {
-                GameObject enemy = _enemyObjectPool[0];  // 리스트 처음으로 넣음
-                _enemyObjectPool.Remove(enemy);          // 오브젝트풀에서 제거
+                GameObject enemy1 = _enemyObjectPool[0];  // 리스트 처음으로 넣음
+                _enemyObjectPool.Remove(enemy1);          // 오브젝트풀에서 제거
 
                 int rand = Random.Range(1,3);          // 랜덤라인에서 생성
                 if (rand == 1)
                 {
-                    enemy.transform.position = _CreatePosition1.position;
+                    enemy1.transform.position = _CreatePosition1.position;
                 }
                 else if (rand == 2)
                 {
-                    enemy.transform.position = _CreatePosition2.position;
+                    enemy1.transform.position = _CreatePosition2.position;
                 }
                 else if (rand == 3)
                 {
-                    enemy.transform.position = _CreatePosition3.position;
+                    enemy1.transform.position = _CreatePosition3.position;
                 }
-                enemy.SetActive(true);  // 활성화 시킴
+                enemy1.SetActive(true);  // 활성화 시킴
 
                 Monster_Number++;
                 Monster_Number_txt.text = string.Format("{0}/{1}",_poolSize - Monster_Number, _poolSize);   // 남은몹 갯수표시
