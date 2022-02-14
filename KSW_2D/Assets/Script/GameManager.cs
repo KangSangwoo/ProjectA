@@ -10,8 +10,6 @@ public class GameManager : MonoBehaviour
     public GameObject Game_Text_Manager;
     public Text GameText;
 
-    //남은몹 텍스트
-    public Text Monster_Number_Text;
 
     public GameObject Enemy_Tower1;
     public GameObject Enemy_Tower2;

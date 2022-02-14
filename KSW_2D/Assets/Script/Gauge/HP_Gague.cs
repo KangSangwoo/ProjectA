@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HP_Gague : MonoBehaviour
 {
+    
     public GameObject HP_Bar_prefeb;
     public GameObject cnavas;
 

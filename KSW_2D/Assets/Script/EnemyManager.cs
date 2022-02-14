@@ -69,7 +69,6 @@ public class EnemyManager : MonoBehaviour
         }
 
         //몬스터 스텟 정보
-
     }
 
     void Update()
