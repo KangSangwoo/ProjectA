@@ -11,11 +11,7 @@ public class EnemyManager : MonoBehaviour
     public GameObject _enemy3_Source;
     public GameObject _enemy4_Source;
 
-    GameObject enemy1;
-    GameObject enemy2;
-    GameObject enemy3;
-    GameObject enemy4;
-
+    GameObject enemy;
 
     //생성시간
     float _currentTime;
@@ -50,61 +46,69 @@ public class EnemyManager : MonoBehaviour
 
             if (rand <= 30)
             {
-                enemy1 = Instantiate(_enemy1_Source);
+                enemy = Instantiate(_enemy1_Source);
             }
             else if (rand <= 60)
             {
-                enemy1 = Instantiate(_enemy2_Source);
+                enemy = Instantiate(_enemy2_Source);
             }
             else if (rand <= 80)
             {
-                enemy1 = Instantiate(_enemy3_Source);
+                enemy = Instantiate(_enemy3_Source);
             }
             else
             {
-                enemy1 = Instantiate(_enemy4_Source);
+                enemy = Instantiate(_enemy4_Source);
             }
-            _enemyObjectPool.Add(enemy1);
-            enemy1.SetActive(false);
+            _enemyObjectPool.Add(enemy);
+            enemy.SetActive(false);
         }
 
-        //몬스터 스텟 정보
+        //몬스터 스텟 정보 -> 각자 스크립트를 만들자
     }
 
     void Update()
     {
+
         _currentTime += Time.deltaTime;
 
         if (_currentTime > _createTime)     // 만약 N초가 지나면 (start에서 랜덤화)
         {
             if (_enemyObjectPool.Count > 0)
             {
-                GameObject enemy1 = _enemyObjectPool[0];  // 리스트 처음으로 넣음
-                _enemyObjectPool.Remove(enemy1);          // 오브젝트풀에서 제거
+                GameObject enemy = _enemyObjectPool[0];  // 리스트 처음으로 넣음
+                _enemyObjectPool.Remove(enemy);          // 오브젝트풀에서 제거
 
-                int rand = Random.Range(1,3);          // 랜덤라인에서 생성
+                int rand = Random.Range(1, 3);          // 랜덤라인에서 생성
                 if (rand == 1)
                 {
-                    enemy1.transform.position = _CreatePosition1.position;
+                    enemy.transform.position = _CreatePosition1.position;
                 }
                 else if (rand == 2)
                 {
-                    enemy1.transform.position = _CreatePosition2.position;
+                    enemy.transform.position = _CreatePosition2.position;
                 }
                 else if (rand == 3)
                 {
-                    enemy1.transform.position = _CreatePosition3.position;
+                    enemy.transform.position = _CreatePosition3.position;
                 }
-                enemy1.SetActive(true);  // 활성화 시킴
+                enemy.SetActive(true);  // 활성화 시킴
 
                 Monster_Number++;
-                Monster_Number_txt.text = string.Format("{0}/{1}",_poolSize - Monster_Number, _poolSize);   // 남은몹 갯수표시
+                Monster_Number_txt.text = string.Format("{0}/{1}", _poolSize - Monster_Number, _poolSize);   // 남은몹 갯수표시
+                                                                                                             // _enemyObjectPool.Count으로 남은몹 세도 될듯
+                _currentTime = 0;
+                _createTime = Random.Range(_minTime, _maxTime);
 
             }
-            _currentTime = 0;
+            else // 오브젝트 풀 == 0일때
+            {
+                _createTime = 1000000000;       // 생성더하지마
+            }
 
-            _createTime = Random.Range(_minTime, _maxTime);
 
+
+           
 
 
         }

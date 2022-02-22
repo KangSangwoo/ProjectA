@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class Cost_Gague : MonoBehaviour
 {
     // 코스트 이미지
-    public Image img;
     public Slider CostBar;
     public Text cost_txt;
 
@@ -18,8 +17,6 @@ public class Cost_Gague : MonoBehaviour
     public float cost = 0;
     public float plus_cost = 5.0f;
     float cost_max = 500.0f;
-
-    public GameObject PM;
 
 
     void Start()

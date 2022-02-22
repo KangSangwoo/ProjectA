@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4105272846455611385}
   - component: {fileID: 6360958235103048786}
   - component: {fileID: 6678965909709343907}
-  - component: {fileID: 8186199612382333573}
   m_Layer: 0
   m_Name: Enemy 2_Summon
   m_TagString: Enemy
@@ -81,21 +80,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &8186199612382333573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5311084104317344601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfec267d716747a4d8c9e2935856c89e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HP_Bar_prefeb: {fileID: 0}
-  cnavas: {fileID: 0}
-  height: 1.7
 --- !u!1001 &1019657818254724926
 PrefabInstance:
   m_ObjectHideFlags: 0

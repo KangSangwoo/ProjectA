@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Sp_Gague : MonoBehaviour
 {
-    public Image img;
     public Slider SpBar;
     public Text Sp_txt;
 

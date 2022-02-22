@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Exp_Gague : MonoBehaviour
 {
-    public Image img;
     public Slider expBar;
     public Text exp_txt;
 

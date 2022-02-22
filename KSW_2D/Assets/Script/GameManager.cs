@@ -10,11 +10,6 @@ public class GameManager : MonoBehaviour
     public GameObject Game_Text_Manager;
     public Text GameText;
 
-
-    public GameObject Enemy_Tower1;
-    public GameObject Enemy_Tower2;
-    public GameObject Enemy_Tower3;
-
     void Start()
     {
     }
